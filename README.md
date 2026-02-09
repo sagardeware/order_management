@@ -2,6 +2,8 @@
 
 A high-performance, full-stack food ordering application featuring a dynamic menu, advanced cart management, and real-time order tracking simulation.
 
+**🔗 Live Demo**: [https://order-management-q1nb.onrender.com/](https://order-management-q1nb.onrender.com/)
+
 ## ✨ Core Features
 
 ### 1. Dynamic Menu Explorer
@@ -155,4 +157,24 @@ npm test; npm run test:ui
 ```
 
 ---
+
+## 🚀 Future Roadmap
+
+While the core functionality is robust, the following enhancements are planned for future releases:
+
+1.  **User Personalization**:
+    *   **Authentication**: Implementing Clerk or NextAuth for secure user accounts.
+    *   **Saved Addresses**: Allow users to save locations for faster checkout.
+2.  **Location & Logistics**:
+    *   **GPS Integration**: Automatic location detection using the Geolocation API.
+    *   **Live Maps**: Real-time delivery partner tracking via Google Maps.
+3.  **Growth & Rewards**:
+    *   **Coupon System**: Support for promo codes and seasonal discounts.
+    *   **Dynamic Pricing**: Strike-through pricing for sales events.
+4.  **Operational Tools**:
+    *   **Admin Dashboard**: Manage inventory and view sales analytics.
+    *   **Notifications**: Real-time status updates via browser push.
+
+---
+
 Built with ❤️ by [Sagar Deware](https://github.com/sagardeware)
