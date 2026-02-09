@@ -1,78 +1,78 @@
-# FoodieDash | Order Management System
+# FoodieDash | Premium Order Management System
 
-A premium food ordering and real-time tracking application built with **Next.js 15**, **Prisma**, **PostgreSQL**, and **Shadcn/UI**.
+A high-performance, full-stack food ordering application featuring a dynamic menu, advanced cart management, and real-time order tracking simulation.
 
-## 🚀 Key Features
+## ✨ Core Features
 
-- 🍕 **Curated Menu**: Browse a wide variety of dishes with rich visual previews.
-- 🛒 **Advanced Cart UX**: 
-  - Real-time quantity adjustments with item counters.
-  - Smart item removal (Trash icon indicator).
-  - Maximum quantity enforcement (Up to 10 per dish).
-- 📝 **Structured Checkout**: 
-  - Indian phone number validation (+91).
-  - Granular address fields (Street, Landmark, City, Pincode).
-  - Pincode validation (6-digit requirement).
-- 🚚 **Animated Order Tracking**: 
-  - Real-time order status updates.
-  - Interactive delivery path visualization with an animated truck icon.
-- 📜 **Order History**: 
-  - Paginated orders list (initial load 10 + pagination).
-  - High-impact order cards with status badges and currency (₹).
-- 🌗 **Premium UI/UX**: 
-  - Glassmorphism design aesthetics.
-  - Dark mode support.
-  - Smooth micro-animations and transitions.
+### 1. Dynamic Menu Explorer
+- **Visual Catalog**: A rich list of food items (pizza, burgers, beverages, etc.) with high-quality visual previews.
+- **Detailed Metadata**: Each item features a unique name, description, category badge, and localized pricing (₹).
+- **Responsive Grid**: Fully optimized for seamless browsing across mobile and desktop devices.
+
+### 2. Advanced Order Management
+- **Interactive Cart**: Persistent shopping cart allowing users to aggregate multiple items effortlessly.
+- **Micro-interactions**: Inline quantity controls with smart item removal (Trash icon indicator) and a maximum limit of 10 items per dish.
+- **Structured Checkout**: A robust form with multi-field validation:
+  - **Name**: Length-constrained validation (2-50 chars).
+  - **Mobile**: Strict 10-digit Indian phone number format (+91).
+  - **Address**: Granular fields for Street, Landmark, City, and Pincode (6-digit validation).
+
+### 3. Real-Time Tracking & Visualization
+- **Live Status Updates**: Visual progress indicators for order stages: “Order Received”, “Preparing”, and “Out for Delivery”.
+- **Backend-Driven Simulation**: Real-time status transitions calculated on the server-side based on elapsed time.
+- **Animated Delivery Tracking**: An interactive map-style path with an animated truck visualization specifically for the delivery phase.
+
+### 4. Technical Excellence
+- **Robust Backend**: REST API architecture handling order persistence, menu synchronization, and status retrieval.
+- **Database & ORM**: PostgreSQL integration with Prisma for reliable data modeling and relational storage.
+- **Test-Driven Development (TDD)**: Comprehensive coverage using **Jest** and **React Testing Library**:
+  - API endpoint verification for CRUD operations.
+  - Form validation logic and input sanitization.
+  - Core utility for status simulation logic.
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-- **Database**: [PostgreSQL](https://www.postgresql.org/)
-- **ORM**: [Prisma](https://www.prisma.io/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Components**: [Shadcn/UI](https://ui.shadcn.com/)
-- **Validation**: [Zod](https://zod.dev/) & [React Hook Form](https://react-hook-form.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router & Turbopack)
+- **Database**: [PostgreSQL](https://www.postgresql.org/) with [Prisma ORM](https://www.prisma.io/)
+- **UI/UX**: [Tailwind CSS](https://tailwindcss.com/) & [Shadcn/UI](https://ui.shadcn.com/)
+- **Logic & Forms**: [Zod](https://zod.dev/) & [React Hook Form](https://react-hook-form.com/)
+- **Testing**: [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/)
 
-## 📦 Getting Started
+## 📦 Installation & Setup
 
 ### 1. Prerequisites
 - Node.js 18+
-- PostgreSQL database instance
+- PostgreSQL database
 
-### 2. Environment Setup
-Create a `.env.local` file in the root directory:
+### 2. Environment Configuration
+Create a `.env.local` file in the root:
 ```bash
 DATABASE_URL="postgresql://user:password@localhost:5432/order_management?schema=public"
 ```
 
-### 3. Installation
+### 3. Build & Initialize
 ```bash
+# Install dependencies
 npm install
-```
 
-### 4. Database Initialization
-```bash
+# Generate Prisma client and run migrations
 npx prisma generate
 npx prisma migrate dev
+
+# Seed initial menu data
 npm run seed
 ```
 
-### 5. Development
+### 4. Run Environment
 ```bash
+# Start development server
 npm run dev
+
+# Run test suite
+npm test
 ```
-
-## 📂 Project Structure
-
-- `/app`: Next.js 15 App Router pages and global styles.
-- `/components`: UI library and domain-specific components (Navbar, Cart, Orders, Tracking).
-- `/hooks`: Custom hooks for state management (Cart context).
-- `/lib`: Shared utility functions and database instance.
-- `/prisma`: Database schema and seed data.
-
-## 🎨 Design Philosophy
-The application prioritizes **Visual Excellence** and **Functional Simplicity**. Every interaction is designed to feel fast, responsive, and animated, ensuring users are guided through the ordering process with constant visual feedback.
 
 ---
 Built with ❤️ by [Sagar Deware](https://github.com/sagardeware)
