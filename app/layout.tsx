@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { CartProvider } from "@/hooks/use-cart";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Shadcn UI Project",
-    description: "A complete Next.js project with all shadcn/ui components",
+    title: "FoodieDash | Delicious Food Delivered",
+    description: "Premium food ordering and real-time order tracking management system.",
 };
 
 export default function RootLayout({
@@ -24,7 +26,10 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    {children}
+                    <CartProvider>
+                        {children}
+                        <Toaster />
+                    </CartProvider>
                 </ThemeProvider>
             </body>
         </html>

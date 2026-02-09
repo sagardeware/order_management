@@ -79,7 +79,63 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60 font-bold;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10;
+  }
+}
+
+@keyframes delivery-move {
+  0% {
+    left: 0%;
+    transform: translateY(-50%) scaleX(1);
+  }
+
+  45% {
+    left: 85%;
+    transform: translateY(-50%) scaleX(1);
+  }
+
+  50% {
+    left: 85%;
+    transform: translateY(-50%) scaleX(-1);
+  }
+
+  95% {
+    left: 0%;
+    transform: translateY(-50%) scaleX(-1);
+  }
+
+  100% {
+    left: 0%;
+    transform: translateY(-50%) scaleX(1);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-delivery-move {
+  animation: delivery-move 6s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
 }
