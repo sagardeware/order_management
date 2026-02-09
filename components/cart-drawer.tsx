@@ -36,7 +36,7 @@ export function CartDrawer() {
     return (
         <Sheet open={isOpen} onOpenChange={handleOpenChange}>
             <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="relative">
+                <Button variant="outline" size="icon" className="relative" aria-label="Cart" data-testid="cart-button">
                     <ShoppingCart className="h-5 w-5" />
                     {totalItems > 0 && (
                         <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[10px] font-bold px-2 py-1 rounded-full">

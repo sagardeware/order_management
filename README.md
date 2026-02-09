@@ -25,10 +25,9 @@ A high-performance, full-stack food ordering application featuring a dynamic men
 ### 4. Technical Excellence
 - **Robust Backend**: REST API architecture handling order persistence, menu synchronization, and status retrieval.
 - **Database & ORM**: PostgreSQL integration with Prisma for reliable data modeling and relational storage.
-- **Test-Driven Development (TDD)**: Comprehensive coverage using **Jest** and **React Testing Library**:
-  - API endpoint verification for CRUD operations.
-  - Form validation logic and input sanitization.
-  - Core utility for status simulation logic.
+- **Full-Spectrum Testing**: 
+  - **Unit & Logic (Jest)**: Validates core utilities, order status simulation.
+  - **E2E & UI (Playwright)**: Verifies real-world user journeys, localized currency rendering, and complex cart-to-checkout flows in a headless/headed browser.
 
 ---
 
@@ -38,7 +37,31 @@ A high-performance, full-stack food ordering application featuring a dynamic men
 - **Database**: [PostgreSQL](https://www.postgresql.org/) with [Prisma ORM](https://www.prisma.io/)
 - **UI/UX**: [Tailwind CSS](https://tailwindcss.com/) & [Shadcn/UI](https://ui.shadcn.com/)
 - **Logic & Forms**: [Zod](https://zod.dev/) & [React Hook Form](https://react-hook-form.com/)
-- **Testing**: [Jest](https://jestjs.io/) & [React Testing Library](https://testing-library.com/)
+- **Testing**: [Jest](https://jestjs.io/), [React Testing Library](https://testing-library.com/), and [Playwright](https://playwright.dev/)
+
+## 🧪 Testing
+
+The project implements a multi-layered testing strategy to ensure reliability and maintainability.
+
+### 1. Unit & Integration Tests (Jest)
+Focuses on business logic, utility functions, and schema validation.
+```bash
+# Run all vitest/jest tests
+npm test
+
+# Run a specific test file
+npx jest __tests__/validation.test.ts
+```
+
+### 2. End-to-End & UI Tests (Playwright)
+Validates the entire application flow in a real browser environment.
+```bash
+# Run all UI tests (Headless)
+npm run test:ui
+
+# Watch tests run in a visible browser (Headed)
+npx playwright test --headed
+```
 
 ## 📦 Installation & Setup
 
@@ -57,6 +80,9 @@ DATABASE_URL="postgresql://user:password@localhost:5432/order_management?schema=
 # Install dependencies
 npm install
 
+# Install Playwright browsers (first-time only)
+npx playwright install chromium
+
 # Generate Prisma client and run migrations
 npx prisma generate
 npx prisma migrate dev
@@ -67,11 +93,11 @@ npm run seed
 
 ### 4. Run Environment
 ```bash
-# Start development server
+# Start development server (Port 3000)
 npm run dev
 
-# Run test suite
-npm test
+# Run all test suites
+npm test; npm run test:ui
 ```
 
 ---
