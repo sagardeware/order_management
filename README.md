@@ -27,7 +27,36 @@ A high-performance, full-stack food ordering application featuring a dynamic men
 - **Database & ORM**: PostgreSQL integration with Prisma for reliable data modeling and relational storage.
 - **Full-Spectrum Testing**: 
   - **Unit & Logic (Jest)**: Validates core utilities, order status simulation.
-  - **E2E & UI (Playwright)**: Verifies real-world user journeys, localized currency rendering, and complex cart-to-checkout flows in a headless/headed browser.
+  - **E2E & UI (Playwright)**: Verifies real-world user journeys, localized currency rendering, and complex cart-to-checkout flows.
+
+---
+
+## 🏗️ Architecture & Approach
+
+### 1. Strategic Development Process
+The application was built using a **Database-First** and **API-First** methodology:
+- **Schema Finalization**: First, the core data models (Orders, MenuItems) were defined using Prisma to ensure a solid foundation.
+- **Backend Core**: RESTful API endpoints were developed with strict Zod validation to handle business logic securely.
+- **Frontend Integration**: Finally, the UI was crafted using Next.js 15, consuming the reliable backend services.
+
+### 2. Scalability & Maintainability
+- **Modular Component Design**: Built with Shadcn/UI and Tailwind CSS, the UI is highly modular, making it easy to extend or restyle without side effects.
+- **Stateless API Logic**: The backend calculates order status dynamically based on timestamps, reducing database overhead and making the system horizontally scalable.
+- **Type Safety**: End-to-end TypeScript implementation ensures that data structures are consistent from the database to the browser.
+- **Clean Code Architecture**: Adheres to SOLID principles, with clear separation of concerns between UI components, data hooks, and utility functions.
+
+### 3. API Security & Structure
+- **Payload Validation**: Every request is intercepted by Zod schemas to prevent malformed data or injection attacks.
+- **Structured Responses**: Consistent JSON response formatting for easy debugging and frontend consumption.
+
+### 4. Thorough Testing Philosophy
+Tested at three distinct levels:
+- **Unit**: Core algorithms and data transformations.
+- **Integration**: API endpoint responses and database interactions.
+- **E2E**: Critical user paths (Selection -> Checkout -> Tracking) using Playwright.
+
+### 5. AI-Assisted Engineering
+This project was developed in collaboration with **Antigravity**, utilizing AI for high-velocity code generation, complex testing implementation, and rapid UI prototyping while maintaining high architectural standards.
 
 ---
 
@@ -62,6 +91,31 @@ npm run test:ui
 # Watch tests run in a visible browser (Headed)
 npx playwright test --headed
 ```
+
+---
+
+## 🚀 Deployment
+
+The application is optimized for deployment on **Render** (Frontend/API) and **Neon** (Serverless PostgreSQL).
+
+### 1. Database Setup (Neon)
+1. Create a project at [Neon.tech](https://neon.tech/).
+2. Copy the connection string.
+3. Locally, sync the schema and seed data:
+   ```powershell
+   $env:DATABASE_URL="YOUR_NEON_URL"; npx prisma db push
+   $env:DATABASE_URL="YOUR_NEON_URL"; npx prisma db seed
+   ```
+
+### 2. Web Service Setup (Render)
+1. Connect your GitHub repo to a new **Web Service**.
+2. **Build Command**: `npm install && npm run build`
+3. **Start Command**: `npm start`
+4. **Environment Variables**:
+   - `DATABASE_URL`: Your Neon connection string.
+   - `NODE_ENV`: `production`
+
+---
 
 ## 📦 Installation & Setup
 
